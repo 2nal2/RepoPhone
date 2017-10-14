@@ -1,0 +1,105 @@
+<br><br>
+<div class="col m8 offset-m2 s12 white z-depth-4">
+    <% if notice %>
+    <div class="notification">
+        <div class="col s12 m10 l10 offset-m1 offset-l1">
+            <div class="chip green">
+                <i class=" close material-icons right white-text">close</i>
+                <i class="material-icons white-text left notification-icon">check_circle</i>
+                <h6 class="white-text"><%= notice %>
+                    <h6></div>
+                </div>
+            </div>
+            <% end %>
+
+            <div class="row center grey-text">
+                <h4>
+                    <%= @smartphone.name %>
+                </h4>
+            </div>
+
+            <div class="row">
+                <div class="col m6 s8 offset-s2">
+
+                    <div class="carousel carousel-slider center" data-indicators="true">
+                        <div class="carousel-fixed-item left">
+                            <a class="grey-text darken-text-2">
+                                <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                        <div class="carousel-fixed-item right">
+                            <a class="grey-text darken-text-2">
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                        <% @smartphone.pictures.each_with_index do |pic, i| %>
+                        <div class="carousel-item" href="#<%= @numbers[i+1] %>!">
+                            <%= image_tag pic.image.url %>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+
+                <div class="col m6 s12 specs-container">
+                    <div class="specs center">
+                        <i class="fa fa-hdd-o" aria-hidden="true"></i>
+                        <h6 class="bold-text">Alamacenamiento</h6>
+                        <p><%= @smartphone.storage %>GB de almacenamiento interno</p>
+                    </div>
+                    <div class="specs center">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                        <h6 class="bold-text">Pantalla</h6>
+                        <p><%= @smartphone.screen %>
+                            pulgadas</p>
+                    </div>
+                    <div class="specs center">
+                        <i class="fa fa-circle-o" aria-hidden="true"></i>
+                        <h6 class="bold-text">Sistema operativo</h6>
+                        <p><%= @smartphone.os %></p>
+                    </div>
+                    <div class="specs center">
+                        <i class="fa fa-bolt" aria-hidden="true"></i>
+                        <h6 class="bold-text">RAM</h6>
+                        <p><%= @smartphone.ram %></p>
+                    </div>
+                    <div class="specs center">
+                        <i class="fa fa-signal" aria-hidden="true"></i>
+                        <h6 class="bold-text">SIM</h6>
+                        <p><%= @smartphone.ram %></p>
+                    </div>
+
+                    <div class="container center">
+                        <h5>Precio:
+                            <span class="deep-orange-text darken-1">$<%= @smartphone.price %></span>
+                        </h5>
+                        <button type="button" name="button" class="waves-effect waves-light btn">
+                            Agregar al carrito
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="divider"></div>
+            <div class="row browser-default">
+                <%= @smartphone.description.html_safe %>
+            </div>
+
+            <div clas="row">
+              <div class="center"><h5>Relacionados</h5></div>
+              <% @relateds.each do |related|%>
+              <div class="center relateds">
+                <a href="<%= catalogo_path + "/" + related.id.to_s %>">
+                  <%= image_tag related.pictures.first.image.url(:thumb) %>
+                  <p><%= related.name %></p>
+                  <p><span class="deep-orange-text darken-1">$<%= @smartphone.price %></span></p>
+                </a>
+              </div>
+              <%end%>
+            </div>
+            <%= link_to 'Edit', edit_smartphone_path(@smartphone) %>
+            |
+            <%= link_to 'Back', smartphones_path %>
+        </div>

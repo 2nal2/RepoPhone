@@ -1,0 +1,47 @@
+// Place all the styles related to the Smartphones controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.smartphone-card{
+    min-width: 260px;
+    width: 30%;
+    max-width: 350px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.smartphone-container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // align-items: center;
+    justify-content: center;
+}
+
+.specs-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    .specs{
+        max-width: 50%;
+        min-width: 50%;
+        i{
+            font-size: 3em;
+        }
+    }
+    
+}
+
+
+.relateds{
+    line-height: 0.5;
+}
+@media screen and (max-width: 660px){
+    .smartphone-card{
+        width: 70%;
+    }
+}

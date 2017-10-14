@@ -1,0 +1,99 @@
+<br>
+<br>
+  <%= tinymce %>
+  <%= form_for(smartphone, :html => {:class => "col s12", :multipart => true}) do |f| %>
+    <div class="col m8 offset-m2 s12 white z-depth-4">
+      <div class="center">
+        <h1><%= @title %></h1>
+      </div>
+      
+      <% if smartphone.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(smartphone.errors.count, "error") %> no se han podido guardar:</h2>
+
+          <ul>
+          <% smartphone.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+    <div class="row">
+      <div class="input-field col s12 m6">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+    
+
+      <div class="input-field col s12 m6">
+        <%= f.label :price %>
+        <%= f.text_field :price %>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :colors %>
+      <%= f.text_field :colors %>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12 m3">
+        <%= f.label :sim %>
+        <%= f.text_field :sim %>
+      </div>
+
+      <div class="input-field col s12 m3">
+        <%= f.label :ram %>
+        <%= f.text_field :ram %>
+      </div>
+
+      <div class="input-field col s12 m3">
+        <%= f.label :storage %>
+        <%= f.text_field :storage %>
+      </div>
+
+      <div class="input-field col s12 m3">
+        <%= f.label :os %>
+        <%= f.text_field :os %>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :screen %>
+      <%= f.text_field :screen %>
+    </div>
+
+    <div>
+      <%= f.check_box :promo, id: "promo_check"%>
+      <%= f.label :promo , for: "promo_check"%>
+    </div>
+
+    <div class="control-group">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Imagenes</span>
+          <%= file_field_tag "images[]", type: :file, multiple: true %>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="suba una o más imagenes">
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <%= f.label :description %>
+      <%= f.text_area :description, :class => "tinymce", :rows => 40, :cols => 120 %>
+    </div>
+
+    <br><br>
+    <div class="row align-right">
+      <%= f.submit "Guardar", class: "btn waves-effect waves-light"%>
+      <%= link_to 'Ver todos', smartphones_path, class: "btn waves-effect waves-light"%>
+    </div>
+
+    
+
+    <br><br>
+</div>
+<% end %>

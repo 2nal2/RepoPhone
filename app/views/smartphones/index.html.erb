@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<h1>Smartphones</h1>
+<% id = 0%>
+
+<%= link_to 'Agregar Smartphone', new_smartphone_path, class: "waves-effect waves-light btn"%>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Sim</th>
+      <th>Ram</th>
+      <th>Colors</th>
+      <th>Storage</th>
+      <th>Os</th>
+      <th>Screen</th>
+      <th>Promo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smartphones.each do |smartphone| %>
+      <tr>
+        <td><%= smartphone.name %></td>
+        <td><%= smartphone.price %></td>
+        <td><%= smartphone.description %></td>
+        <td><%= smartphone.sim %></td>
+        <td><%= smartphone.ram %></td>
+        <td><%= smartphone.colors %></td>
+        <td><%= smartphone.storage %></td>
+        <td><%= smartphone.os %></td>
+        <td><%= smartphone.screen %></td>
+        <td>
+           
+           <input value="" id=<%=  "check-"+id.to_s %> type="checkbox" <%= smartphone.promo ? "checked" : '' %> disabled/>
+           <label for=<%=  "check-"+id.to_s %> enabled="false"></label>
+        </td>
+        <td><%= link_to 'Show', smartphone %></td>
+        <td><%= link_to 'Edit', edit_smartphone_path(smartphone) %></td>
+        <td><%= link_to 'Destroy', smartphone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% id+=1 %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>

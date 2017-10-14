@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "materialize/components/color";
+ $primary-color: color("indigo", "darken-1") !default;
+//  $primary-color: color("indigo", "darken-1") !default;
+ $secondary-color: color("blue-grey", "darken-1") !default;
+ @import "materialize";
+
+ // material font-icon
+ @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+
+ nav{
+    position: fixed;
+    top:0;
+    background: white;
+    color: black;
+    z-index:1000;
+    a{
+        color: black;
+    }
+
+    .brand-logo{
+        color: black;
+    }
+
+    .shopping-cart-container{
+        position: absolute;
+        right: 53px;
+        font-size: 23px;
+    }
+    
+ }
+ #slide-out{
+    z-index: 1001;
+}
+ body{
+    background-color: #f3f3f3;
+ }
+
+ .social-bar{
+     border-radius: 100%;
+
+     i{
+         font-size: 1.6em;
+         margin: 5px;
+         cursor: pointer;
+     }
+
+ }
+
+ .close-text{
+    line-height: 0;
+}
+
+.parallax-landing{
+    background-image: url(asset_path( 'common/landing-background.png') );
+    background-attachment: fixed;
+}
+
+.notification{
+    position: fixed;
+    left: -12px;
+    top: 95px;
+
+    .chip{
+        height: 50px;
+    }
+    .notification-icon{
+        padding-top: 12px;
+    }
+}
+
+.bold-text{
+    font-weight: bold;
+    margin-bottom: -13px    ;
+
+}
+
+.carousel-fixed-item{
+    display: inline-table;
+    bottom:50% !important;
+    font-size: 2em;
+    // left: 2% !important;
+    &.left{
+        left: 2% !important;
+    }
+    
+    &.right{
+        left: calc(100% - 1.2em) !important;
+    }
+}

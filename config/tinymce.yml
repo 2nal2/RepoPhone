@@ -1,0 +1,7 @@
+toolbar:
+  - styleselect | bold italic | undo redo | alignleft | aligncenter | alignright | image | link
+plugins:
+  - image
+  - link
+language:
+  - es  

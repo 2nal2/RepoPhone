@@ -1,0 +1,36 @@
+<br><br>
+<br><br>
+<div class="">
+    <div class='s12'>
+        <%= form_tag catalogo_path, :method => 'get', :id => "search_form" do %>
+            <div class="input-field col s8 offset-s2">
+                <%= text_field_tag :search, params[:search], class: "icon_prefix", placeholder: "Buscar" %>
+                <i class="material-icons prefix">search</i>
+            </div>
+        <% end %>        
+    </div>
+    <div class="s12 smartphone-container">
+        <% @smartphones.each do |phone|%>
+            <div class="smartphone-card">
+                <div class="card center">
+                    <br>
+                    <div class="card-image">
+                        <%= image_tag phone.pictures.first.image.url(:medium)%>
+                        <%# <span class="card-title">Card Title</span> %>
+                    </div>
+                    <div class="card-content">
+                        <h5><%= phone.name %></h5>
+                        <p>
+                            Precio : $<%= phone.price %>
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <%= link_to "Ver más", catalogo_path+"/"+phone.id.to_s %>
+                        <a href="#">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+
+            <% end %>
+    </div>
+</div>
