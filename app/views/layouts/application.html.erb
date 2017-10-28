@@ -26,17 +26,34 @@
     </nav>
 
     <ul id="slide-out" class="side-nav">
-      <li>
-        <div class="user-view">
-          <div class="background">
-            <img src=<%= asset_path( 'common/background.png') %>>
+      <% if user_signed_in? %>
+        <li>
+          <div class="user-view">
+            <div class="background">
+              <img src=<%= asset_path('common/background.png') %>>
+            </div>
+            
+            
+                <a href="#!user"><img class="circle" src=<%= asset_path( 'common/user.png') %>></a>
+                <a href="#!name"><span class="black-text name">UserName</span></a>
+                <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
+                <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete%>
           </div>
-          <%# <a href="#!user"><img class="circle" src=""></a> %>
-          <%# <a href="#!name"><span class="white-text name">John Doe</span></a>
-          <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a> %>
-          <br><br><br>
-        </div>
-      </li>
+        </li>
+      <% else %>
+        <ul class="collapsible collapsible-accordion no-padding">
+          <li>
+            <a href="#" class="collapsible-header waves-effect waves-teal"><i class="fa fa-th-large"></i>Mi cuenta</a>
+              <div class="collapsible-body" style="display: block;">
+                <ul>
+                  <li><a href=<%= root_path %>><i class="material-icons">home</i>Registrarme</a></li>
+                  <li><a href=<%= root_path %>><i class="material-icons">Registrarse</i>Iniciar sesión</a></li>
+              </div>
+            </li>
+          </ul>
+        
+        <li><%= link_to 'registrarse', user_session_path %></li>
+      <% end %>
       <li><a href=<%= root_path %>><i class="material-icons">home</i>Inicio</a></li>
       <li><a href=<%= catalogo_path %>><i class="material-icons">dvr</i>Catálogo</a></li>
       <li><a href="#!"><i class="material-icons">card_giftcard</i>Promociones</a></li>
