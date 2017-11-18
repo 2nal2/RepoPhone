@@ -3,7 +3,7 @@
 <div class="">
     <div class='s12'>
         <%= form_tag catalogo_path, :method => 'get', :id => "search_form" do %>
-            <div class="input-field col s8 offset-s2">
+            <div class="input-field col s8 offset-s2 search-catalog">
                 <%= text_field_tag :search, params[:search], class: "icon_prefix", placeholder: "Buscar" %>
                 <i class="material-icons prefix">search</i>
             </div>
@@ -25,8 +25,8 @@
                         </p>
                     </div>
                     <div class="card-action">
-                        <%= link_to "Ver más", catalogo_path+"/"+phone.id.to_s %>
-                        <a href="#">Agregar al carrito</a>
+                        <%= link_to "Ver más", catalogo_path+"/"+phone.id.to_s , class: "blue-text"%>
+                        <a class="blue-text" href="#">Agregar al carrito</a>
                     </div>
                 </div>
             </div>

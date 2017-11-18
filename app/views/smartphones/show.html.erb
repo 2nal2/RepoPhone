@@ -6,11 +6,11 @@
             <div class="chip green">
                 <i class=" close material-icons right white-text">close</i>
                 <i class="material-icons white-text left notification-icon">check_circle</i>
-                <h6 class="white-text"><%= notice %>
-                    <h6></div>
-                </div>
+                <h6 class="white-text"><%= notice %><h6>
             </div>
-            <% end %>
+        </div>
+    </div>
+    <% end %>
 
             <div class="row center grey-text">
                 <h4>
@@ -77,13 +77,18 @@
                         <button type="button" name="button" class="waves-effect waves-light btn">
                             Agregar al carrito
                         </button>
+                        <% if current_user.try(:admin?) %>
+                            <br>
+                            <br>
+                            <%= link_to 'Editar', edit_smartphone_path(@smartphone), class: "waves-effect waves-light btn" %>
+                        <% end %>
                     </div>
 
                 </div>
 
             </div>
             <div class="divider"></div>
-            <div class="row browser-default">
+            <div class="row content-detail">
                 <%= @smartphone.description.html_safe %>
             </div>
 

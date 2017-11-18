@@ -17,6 +17,14 @@
         <a href=<%= root_path %> class="brand-logo center">RepoPhone<span>.com</span></a>
         <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
         <div class="shopping-cart-container">
+          <div class="users_links_container">
+            <% if user_signed_in? %>
+              <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete%>
+            <% else%>
+              <%= link_to "Iniciar sesion", new_user_session_path %>
+              <%= link_to "Registrarme",  new_user_registration_path %>
+            <% end %>
+          </div>
           <a href="#">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             <div class="chip">5</div>
@@ -32,27 +40,14 @@
             <div class="background">
               <img src=<%= asset_path('common/background.png') %>>
             </div>
-            
-            
                 <a href="#!user"><img class="circle" src=<%= asset_path( 'common/user.png') %>></a>
-                <a href="#!name"><span class="black-text name">UserName</span></a>
                 <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
                 <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete%>
           </div>
         </li>
       <% else %>
-        <ul class="collapsible collapsible-accordion no-padding">
-          <li>
-            <a href="#" class="collapsible-header waves-effect waves-teal"><i class="fa fa-th-large"></i>Mi cuenta</a>
-              <div class="collapsible-body" style="display: block;">
-                <ul>
-                  <li><a href=<%= root_path %>><i class="material-icons">home</i>Registrarme</a></li>
-                  <li><a href=<%= root_path %>><i class="material-icons">Registrarse</i>Iniciar sesión</a></li>
-              </div>
-            </li>
-          </ul>
-        
-        <li><%= link_to 'registrarse', user_session_path %></li>
+           <li><a href=<%= new_user_session_path %>><i class="material-icons">verified_user</i>Iniciar sesion</a></li>
+           <li><a href=<%= new_user_registration_path %>><i class="material-icons">account_box</i>Registrarme</a></li>
       <% end %>
       <li><a href=<%= root_path %>><i class="material-icons">home</i>Inicio</a></li>
       <li><a href=<%= catalogo_path %>><i class="material-icons">dvr</i>Catálogo</a></li>
@@ -61,6 +56,30 @@
 
     <div class="row content">
       <br><br>
+      <% if notice %>
+        <div class="notification long-notification">
+            <div class="col s12 m12 l12 offset-m1 offset-l1">
+                <div class="chip green">
+                    <i class=" close material-icons right white-text">close</i>
+                    <i class="material-icons white-text left notification-icon">check_circle</i>
+                    <h6 class="white-text"><%= notice %><h6>
+                </div>
+            </div>
+        </div>
+      <% end %>
+
+
+      <% if alert %>
+        <div class="notification long-notification">
+            <div class="col s12 m12 l12 offset-m1 offset-l1">
+                <div class="chip red">
+                    <i class=" close material-icons right white-text">close</i>
+                    <i class="material-icons white-text left notification-icon">check_circle</i>
+                    <h6 class="white-text"><%= alert %><h6>
+                </div>
+            </div>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
@@ -82,7 +101,7 @@
     </div>
     <div class="footer-copyright grey darken-4">
       <div class="container">
-        © 2017 Copyright Text
+        © 2017 Copyright RepoPhone.com
       </div>
     </div>
   </footer>

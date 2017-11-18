@@ -36,6 +36,8 @@ nav {
         position: absolute;
         right: 53px;
         font-size: 23px;
+        display: flex;
+        flex-direction: row;
     }
 }
 
@@ -67,8 +69,9 @@ body {
 
 .notification {
     position: fixed;
-    left: -12px;
+    left: -5px;
     top: 95px;
+    z-index: 10;
     .chip {
         height: 50px;
     }
@@ -91,5 +94,44 @@ body {
     }
     &.right {
         left: calc(100% - 1.2em) !important;
+    }
+}
+
+.users_links_container{
+    font-size: 0.7em;
+    margin-right: 10px;
+    a{
+        margin-left: 10px;
+    }
+}
+
+.home-search{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    input{
+        background-color: #fff !important;
+        background-image: url(asset_path( 'common/lupa.png'));
+        background-position: 10px center;
+        background-repeat: no-repeat;
+        min-width: 310px;
+        width: 70% !important;
+        margin: 0 auto !important;
+        padding-left: 55px !important;
+        border: 1px solid #9e9e9e !important;
+        padding-top: 5px !important;
+        border-radius: 19px !important;
+        padding-bottom: 5px !important;
+    }
+}
+
+@media screen and (max-width: 952px){
+    .users_links_container{
+        display: none;
+    }
+
+    .shopping-cart-container{
+        visibility: hidden;
     }
 }

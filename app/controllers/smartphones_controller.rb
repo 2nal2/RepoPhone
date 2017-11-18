@@ -1,6 +1,9 @@
 class SmartphonesController < ApplicationController
+  include SessionHelper
+
   before_action :set_smartphone, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[edit update destroy create]
+  before_action :authenticate_user!, only: %i[edit update destroy create new]
+  before_action :validate_admin, only: %i[edit update destroy create new]
   # GET /smartphones
   # GET /smartphones.json
   def index
