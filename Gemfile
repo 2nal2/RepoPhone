@@ -48,6 +48,10 @@ gem 'tinymce-rails-langs'
 # for user autentication
 gem 'devise'
 
+# gem for caching and shopping cart
+gem 'redis', '~> 3.0.1'
+gem 'hiredis', '~> 0.4.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

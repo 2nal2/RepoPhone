@@ -1,5 +1,9 @@
 <div class="parallax-container parallax-landing">
+      
       <div class="home-search">
-            <input class="" type="text" placeholder="Encuetra tu smartphone aquí">
+            <%= form_tag catalogo_path, :method => 'get', :class => 'home-search' do %>
+                  <%= text_field_tag :search, params[:search], class: "icon_prefix", placeholder: "Encuetra tu smartphone aquí" %>
+            <% end %>
       </div>
+      
 </div>
