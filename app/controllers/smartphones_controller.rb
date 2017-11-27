@@ -4,6 +4,7 @@ class SmartphonesController < ApplicationController
   before_action :set_smartphone, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[edit update destroy create new]
   before_action :validate_admin, only: %i[edit update destroy create new]
+  skip_before_action :verify_authenticity_token, only: %i[get_smartphones]
   # GET /smartphones
   # GET /smartphones.json
   def index
@@ -93,6 +94,24 @@ class SmartphonesController < ApplicationController
     end
   end
 
+
+  # POST /get-smartphones/list
+  # POST /get-smartphones/list.json
+  def get_smartphones
+    # list = JSON.parse(params[:listSmartphones])
+    list = params[:listSmartphones]
+    smartphones = []
+    list.each{|id, count|
+      temp = Smartphone.find(id)      
+      item = {name: temp.name, price: temp.price, quantity: count}  
+      smartphones << item
+    }
+
+    respond_to do |format|
+        format.json { render json:smartphones}
+    end
+  end
+
   # GET /catalogo
   # GET /catalogo.json
   def catalogo
@@ -116,6 +135,6 @@ class SmartphonesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def smartphone_params
-    params.require(:smartphone).permit(:name, :price, :description, :sim, :ram, :colors, :storage, :os, :screen, :promo, :images)
+    params.require(:smartphone).permit(:name, :price, :description, :sim, :ram, :colors, :storage, :os, :screen, :promo, :images, :listSmartphones)
   end
 end

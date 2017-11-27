@@ -1,3 +1,13 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.checkout-buttons{
+    display: flex;
+    flex-flow: row-reverse;
+    button{
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}

@@ -15,4 +15,12 @@ $(document).on('turbolinks:load', function () {
     $('.collapsible').click(function (e) {
         e.preventDefault();
     });
+
+    function bootstrapAngular() {
+        $('[ng-app]').each(function() {
+          var module = $(this).attr('ng-app');
+          angular.bootstrap(this, [module]);
+        });
+      };
+    $(document).on('turbolinks:load', bootstrapAngular);
 });

@@ -13,7 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require materialize-sprockets
 //= require global.js
 //= require tinymce
+//= require angular
+//= require angular-resource
+//= require angular/angularMain.js
+//= require angular/factories/globalFactory.js
+//= require angular/controllers/globalController.js
