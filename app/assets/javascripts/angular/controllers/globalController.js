@@ -20,9 +20,8 @@ repoPhone.controller('globalController', ['$scope', 'globalFactory', function($s
             $scope.products = data;
 
             for(var i=0; i < data.length; i++){
-                total = data.price * data.quantity;
+                $scope.total += data[i].price * data[i].quantity;
             }
-
         });
     }
 
@@ -33,7 +32,14 @@ repoPhone.controller('globalController', ['$scope', 'globalFactory', function($s
     }
 
     $scope.removeItemCheckOut = function(id){
-        
+        globalFactory.removeItem(id);
+        $scope.refreshCount();
+        $scope.getCartItems();
+    }
+
+    $scope.deleteItemCheckOut = function(id){
+        globalFactory.deleteItem(id);
+        $scope.refreshCount();
         $scope.getCartItems();
     }
 }]);

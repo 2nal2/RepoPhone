@@ -26,7 +26,7 @@
                     </div>
                     <div class="card-action">
                         <%= link_to "Ver más", catalogo_path+"/"+phone.id.to_s , class: "blue-text"%>
-                        <a class="blue-text" href="#">Agregar al carrito</a>
+                        <a href="javascript:void(0);" class="blue-text" ng-click="addItem(<%= phone.id %>)">Agregar al carrito</a>
                     </div>
                 </div>
             </div>

@@ -103,7 +103,7 @@ class SmartphonesController < ApplicationController
     smartphones = []
     list.each{|id, count|
       temp = Smartphone.find(id)      
-      item = {name: temp.name, price: temp.price, quantity: count}  
+      item = {id: temp.id, name: temp.name, price: temp.price, quantity: count}  
       smartphones << item
     }
 

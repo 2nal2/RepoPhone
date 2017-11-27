@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   root "smartphones#home"
 
   resource :cart, only: [:show] do
-    put 'add/:smartphone_id', to: 'carts#add', as: :add_to
-    put 'remove/:smartphone_id', to: 'carts#remove', as: :remove_from
-    get 'cart_count', to: 'carts#cart_count', as: :count
+    get 'pay', to: 'carts#pay', as: :payment
+    post 'save-payment', to: 'carts#save_payment', as: :save_payment
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

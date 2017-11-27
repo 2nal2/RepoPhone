@@ -1,0 +1,44 @@
+<br>
+<br>
+<div ng-init="getCartItems()">
+<div ng-controller="payController" class="row col white s10 offset-s1 m6 offset-m3 l4 offset-l4 z-depth-1">
+<h4 class = "center">Información de pago</h4>
+<form ng-submit="doPayment()">
+  <br>
+  <div class="row">
+    <div class="input-field col s6">
+        <input id="name" type="text" class="validate" autofocus required ng-model="payInformation.name">
+        <label for="name">First Name</label>
+    </div>
+
+    <div class="input-field col s6">
+        <input id="expiration" type="text" class="validate" required ng-model="payInformation.expiration">
+        <label for="expiration">Fecha de expiración</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s9">
+        <input id="card_number" type="text" class="validate" autofocus required ng-model="payInformation.cardNumber">
+        <label for="card_number">Número de tarjeta</label>
+    </div>
+
+    <div class="input-field col s3">
+        <input id="cvv" type="text" class="validate" autofocus required ng-model="payInformation.cvv">
+        <label for="cvv">CVV</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+        <input id="location" type="text" class="validate" autofocus required ng-model="payInformation.location">
+        <label for="location">Dirección de envío</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="center">
+    <button class="btn waves-effect waves-light col s10 offset-s1">mostrar</button>
+    </div>
+  </div>
+</form>
+</div>

@@ -21,3 +21,4 @@
 //= require angular/angularMain.js
 //= require angular/factories/globalFactory.js
 //= require angular/controllers/globalController.js
+//= require angular/controllers/payController.js

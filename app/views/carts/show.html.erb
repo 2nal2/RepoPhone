@@ -2,13 +2,15 @@
 <h1 class="center" ng-init="getCartItems()">Revisión de carrito</h1>
 
 <div class="row col m8 offset-m2 white z-depth-1">
-    <table class="striped bordered">
+    <div ng-if="products && products.length > 0">
+    <table class="striped bordered responsive-table">
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
                 <th>Subtotal</th>
+                <th></th>
             </tr>
         </thead>
 
@@ -18,11 +20,27 @@
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.price * item.quantity }}</td>
+                <td>
+                    <button class="btn" ng-click="deleteItemCheckOut(item.id)">
+                        <i class="material-icons">delete</i>
+                    </button>
+                    <button class="btn" ng-click="removeItemCheckOut(item.id)">
+                        <i class="material-icons">remove</i>
+                    </button>
+                    <button class="btn" ng-click="addItemCheckOut(item.id)">
+                        <i class="material-icons">add</i>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
     <div class="checkout-buttons">
-        <button class="waves-effect waves-light btn blue">Comprar</button>
-        <button class="waves-effect waves-light btn">regresar</button>
+        <a href="/cart/pay" class="waves-effect waves-light btn blue">Comprar</a>
+        <a href="/" class="waves-effect waves-light btn">regresar</a>
+    </div>
+    </div>
+
+    <div class="center" ng-if="!products || products.length === 0">
+        <h5><i class="material-icons">sentiment_very_dissatisfied</i> Aún no ha seleccionados smartphones</h5>
     </div>
 </div>
