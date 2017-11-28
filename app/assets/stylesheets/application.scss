@@ -74,8 +74,7 @@ body {
     img{
         top: 0; 
         left: 0; 
-        min-width: 100%;
-        min-height: 100%;
+        width: 100%;    
     }
 }
 
@@ -166,5 +165,14 @@ body {
 
     .shopping-cart-container{
         visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 753px){
+    .benefit-container{
+        flex-direction: column;
+        .ben-item{
+            width: 100%;
+        }
     }
 }

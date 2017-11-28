@@ -57,13 +57,19 @@
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             <div class="chip">{{ cartCount }}</div>
         </a>
+      </li>
+      <% if current_user.try(:admin?) %>
+      <li>
+        <a href="<%= sales_administration_path %>">
+            <i class="material-icons">attach_money</i>
+            Ventas
+        </a>
         </li>
-      <% if user_signed_in? %>
-
+    
       <% end %>
     </ul>
 
-    <div class="content">
+    <div class="row content">
       <br><br>
       <% if notice %>
         <div class="notification long-notification">

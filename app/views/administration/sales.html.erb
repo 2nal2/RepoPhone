@@ -1,0 +1,31 @@
+<br>
+<br>
+<div class="row col m8 offset-m2 white z-depth-1">
+    <table class="striped bordered responsive-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @sales.each do |item| %>
+              <tr>
+                <td><%= item.id %></td>
+                <td><%= User.find(item.user_id).email %></td>
+                <td><%= item.date %></td>
+                <td><%= item.sale_details.sum{|element| element.quantity * element.price}%></td>
+                <td>
+                    <a href="/administration/sales/<%= item.id %>"class="btn">
+                        <i class="material-icons">visibility</i>
+                    </a>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

@@ -24,6 +24,7 @@ class CartsController < ApplicationController
 
       list.each{|id, quantity|
           detail = SaleDetail.new
+          detail.sale_id = sale.id
           temp = Smartphone.find(id)
           detail.smartphone_id = id
           detail.quantity = quantity

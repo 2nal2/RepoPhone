@@ -1,0 +1,36 @@
+<br>
+<br>
+<div class="row content col row s8 offset-m2">
+    <div class="col m6 s12">
+        <p>Fecha: <%= @sale.date %></p>
+        <p>Usuario: <%= User.find(@sale.user_id).email %></p>
+    </div>
+    <div class="col m6 s12">
+        <p>Dirección de envío: <%= @sale.location %></p>
+        <p>Total : <%= @sale.sale_details.sum{|element| element.quantity * element.price}%></p>
+    </div>
+</div>
+<div class="row col m8 offset-m2 white z-depth-1">
+    <table class="striped bordered responsive-table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal<th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @details.each do |item| %>
+              <tr>
+                <td><%= Smartphone.find(item.smartphone_id).name %></td>
+                <td><%= item.quantity %></td>
+                <td><%= item.price %></td>
+                <td><%= item.price * item.quantity %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

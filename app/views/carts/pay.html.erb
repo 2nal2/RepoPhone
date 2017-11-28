@@ -12,18 +12,18 @@
     </div>
 
     <div class="input-field col s6">
-        <input id="expiration" type="text" class="validate" required ng-model="payInformation.expiration">
+        <input pattern="[0-9]{2}/[0-1][0-9]"id="expiration" type="text" class="validate" required ng-model="payInformation.expiration">
         <label for="expiration">Fecha de expiración</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s9">
-        <input id="card_number" type="text" class="validate" autofocus required ng-model="payInformation.cardNumber">
+        <input pattern="[0-9]{16}" id="card_number" type="text" class="validate" autofocus required ng-model="payInformation.cardNumber">
         <label for="card_number">Número de tarjeta</label>
     </div>
 
     <div class="input-field col s3">
-        <input id="cvv" type="text" class="validate" autofocus required ng-model="payInformation.cvv">
+        <input pattern="[0-9]{3,4}" id="cvv" type="text" class="validate" autofocus required ng-model="payInformation.cvv">
         <label for="cvv">CVV</label>
     </div>
   </div>
