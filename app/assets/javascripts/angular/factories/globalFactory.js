@@ -84,6 +84,9 @@ repoPhone.factory('globalFactory', ['$http', function($http){
             }, function (error) {
                 callback(null, error);
             });
+        },
+        cleanCart: function(){
+            localStorage.setItem("cart", JSON.stringify([]));
         }
     };
 }]);

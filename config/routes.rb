@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resource :cart, only: [:show] do
     get 'pay', to: 'carts#pay', as: :payment
     post 'save-payment', to: 'carts#save_payment', as: :save_payment
+    get 'success', to: 'carts#success', as: :success
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

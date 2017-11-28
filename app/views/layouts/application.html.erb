@@ -52,13 +52,18 @@
       <% end %>
       <li><a href=<%= root_path %>><i class="material-icons">home</i>Inicio</a></li>
       <li><a href=<%= catalogo_path %>><i class="material-icons">dvr</i>Catálogo</a></li>
-      <li><a href="#!"><i class="material-icons">card_giftcard</i>Promociones</a></li>
+      <li>
+        <a href="<%= cart_path %>">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <div class="chip">{{ cartCount }}</div>
+        </a>
+        </li>
       <% if user_signed_in? %>
 
       <% end %>
     </ul>
 
-    <div class="row content">
+    <div class="content">
       <br><br>
       <% if notice %>
         <div class="notification long-notification">

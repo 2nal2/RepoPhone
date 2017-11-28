@@ -67,6 +67,18 @@ body {
     background-attachment: fixed;
 }
 
+.parallax-home {
+    // background-image: url(asset_path( 'common/Opening-Store.jpg')) no-repeat center center fixed;
+    // background-size: cover;
+    // height: 300px;
+    img{
+        top: 0; 
+        left: 0; 
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
 .notification {
     position: fixed;
     left: -5px;
@@ -124,6 +136,27 @@ body {
         border-radius: 19px !important;
         padding-bottom: 5px !important;
     }
+}
+
+.ben-item{
+    width: 25%;
+    border: solid 2px #d9d9d9;
+    margin: 10px;
+    i{
+        font-size: 3em;
+    }
+
+    h6{
+        font-size: 1.5em;
+    }
+}
+
+.benefit-container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 @media screen and (max-width: 952px){

@@ -123,7 +123,7 @@ class SmartphonesController < ApplicationController
   end
 
   def home
-    @smartphones = Smartphone.all
+    @smartphones = Smartphone.all.limit(4)
   end
 
   private

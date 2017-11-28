@@ -1,7 +1,11 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!, only: %i[pay save_payment]
   skip_before_action :verify_authenticity_token, only: %i[save_payment]
+  
   def show
+  end
+
+  def success
   end
 
   def pay

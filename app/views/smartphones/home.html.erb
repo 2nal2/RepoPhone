@@ -7,3 +7,55 @@
       </div>
       
 </div>
+
+<div class="row center">
+      <div class="benefit-container">
+            <div class="col ben-item">
+                  <h6>usa tu tarjeta de crédito</h6>
+                  <i class="material-icons">credit_card</i>
+                  <p>usa la tarjeta del banco de tu preferencia</p>   
+            </div>
+            <div class="col ben-item">
+                  <h6>Entrega a domicilio</h6>
+                  <i class="material-icons">local_shipping</i>   
+                  <p>lo entregamos a la puerta de tu casa</p>   
+            </div>
+            <div class="col ben-item">
+                  <h6>Un año de garantía</h6>
+                  <i class="material-icons">security</i>   
+                  <p>en todos nuestros smartphones</p>   
+            </div>
+      </div>
+<div>
+
+<div class="parallax-home">     
+<img src="<%= asset_path( 'common/Opening-Store.jpg') %>"/>
+</div>
+
+<div class="row">
+<h4 class="center">lo más vendido</h4>
+<div class="s12 smartphone-container">
+      <% @smartphones.each do |phone|%>
+      <div class="smartphone-card">
+            <div class="card center">
+                  <br>
+                  <div class="card-image">
+                  <%= image_tag phone.pictures.first.image.url(:medium)%>
+                  <%# <span class="card-title">Card Title</span> %>
+                  </div>
+                  <div class="card-content">
+                  <h5><%= phone.name %></h5>
+                  <p>
+                        Precio : $<%= phone.price %>
+                  </p>
+                  </div>
+                  <div class="card-action">
+                  <%= link_to "Ver más", catalogo_path+"/"+phone.id.to_s , class: "blue-text"%>
+                  <a href="javascript:void(0);" class="blue-text" ng-click="addItem(<%= phone.id %>)">Agregar al carrito</a>
+                  </div>
+            </div>
+      </div>
+
+      <% end %>
+    </div>
+<div>
