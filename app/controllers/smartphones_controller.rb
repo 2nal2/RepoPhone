@@ -68,8 +68,9 @@ class SmartphonesController < ApplicationController
       if @smartphone.update(smartphone_params)
         if params[:images]
           params[:images].each do |val|
-            if @smartphone.pictures.find_by(image_file_name: val.original_filename)
-              @smartphone.pictures.update(image: val)
+            temp = @smartphone.pictures.find_by(image_file_name: val.original_filename)
+            if temp
+              temp.update_attributes(:image => val)
             else
               @smartphone.pictures.create(image: val)
             end

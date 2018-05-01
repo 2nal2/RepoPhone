@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: tiburon
+  username: <%=ENV['C9_USER']%>
+  host: <%=ENV['IP']%>
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: phoneStore_development
+  database: c9
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
